@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sales_task.description,access_sales_task_description,sales_task.model_sales_task_description,base.group_user,1,1,1,1
+access_sales_task.project_estimation,access_sales_task_project_estimation,sales_task.model_sales_task_project_estimation,base.group_user,1,1,1,1
+access.sales_task.estimation,access_sales_task_estimation,sales_task.model_sales_task_estimation,base.group_user,1,1,1,1
+access.sales_task.color,access_sales_task_color,sales_task.model_sales_task_color,base.group_user,1,1,1,1
+access.sales_task.job_order,access_sales_task_job_order,sales_task.model_sales_task_job_order,base.group_user,1,1,1,1

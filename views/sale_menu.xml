@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_sales_project_estimation"
+              name="Project Estimation"
+              parent="sale.sale_menu_root"
+              sequence="100"/>
+
+</odoo>
+

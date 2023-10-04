@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="sales_task_job_order_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="text-center">
+                            <h1>Sales Order</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                    <span class="text-left ms-2"> Customer</span><br/>
+                                    <span > Date(Confirmation)</span><br/>
+                                    <span > Reference</span><br/>
+                                    <span > Project</span><br/>
+                            </div>
+                            <div class="col-5">
+                                <span class="p-1" >:</span><span t-field="o.customer_name_id"/><br/>
+                                <span class="p-1" >:</span><br/>
+                                <span class="p-1">:</span><br/>
+                                <span class="p-1">:</span><br/>
+                            </div>
+
+                            <div class="col-2">
+                                <span > Date</span><br/>
+                                <span > Job No</span><br/>
+                                <span > Quot</span><br/>
+                            </div>
+                            <div class="col-2">
+                                <span class="p-1">:</span><span t-field="o.sequence_number"/><br/>
+                                <span class="p-1">:</span><br/>
+                                <span class="p-1">:</span><br/>
+                            </div>
+                        </div>
+
+
+                        <!--sale order lines start-->
+                        <t t-if="o.sale_order_lines_ids">
+                            <table class="table table-bordered" name="saleorder">
+                                <thead>
+                                    <tr>
+                                        <th name="th_job_no" class="text-left">
+                                            <span>JO NO</span>
+                                        </th>
+                                        <th name="th_description" class="text-left">
+                                            <span>DESCRIPTION</span>
+                                        </th>
+                                        <th name="th_qty" class="text-left">
+                                            <span>QTY</span>
+                                        </th>
+                                        <th name="th_area" class="text-left">
+                                            <span>AREA</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-foreach="o.sale_order_lines_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.line_no"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.product_uom_qty"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.area_field"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                        <td colspan="2" class="text-center">
+                                            Total Quantity and Area
+                                        </td>
+                                        <td>
+                                            <span t-field="o.full_total_qty"/>
+                                        </td><td>
+                                            <span t-field="o.full_total_area"/>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </t>
+                        <!--sale order lines end-->
+                        <!--estimated lines start-->
+                        <t t-if="o.estimated_line_ids">
+                            <table class="table table-bordered" name="estimated lines">
+                                <thead>
+                                    <tr>
+                                        <th name="th_sr_no" class="text-left">
+                                            <span>SR.No</span>
+                                        </th>
+                                        <th name="th_cus_ref" class="text-left">
+                                            <span>CUS. REF</span>
+                                        </th>
+                                        <th name="th_width" class="text-left">
+                                            <span>WIDTH</span>
+                                        </th>
+                                        <th name="th_height" class="text-left">
+                                            <span>HEIGHT</span>
+                                        </th>
+                                        <th name="th_qty" class="text-left">
+                                            <span>QTY</span>
+                                        </th>
+                                        <th name="th_job_no" class="text-left">
+                                            <span>JO NO.</span>
+                                        </th>
+                                        <th name="th_remark" class="text-left">
+                                            <span>REMARK</span>
+                                        </th>
+                                        <th name="th_area" class="text-left">
+                                            <span>AREA</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-foreach="o.estimated_line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.serial_no"/>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <span t-field="line.width"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.length"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.quantity"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.job_no"/>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <span t-field="line.area"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+                        <!--estimated lines end-->
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

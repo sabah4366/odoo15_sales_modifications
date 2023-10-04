@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    Tree view start-->
+     <record id="view_color_tree" model="ir.ui.view">
+        <field name="name">sales_task.color.tree</field>
+        <field name="model">sales_task.color</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="colour_name"/>
+                <field name="job_number" />
+                <field name="color_widget"  widget="color_picker" />
+
+            </tree>
+        </field>
+    </record>
+<!--    tree view end-->
+<!--    form view start-->
+    <record id="view_color_form" model="ir.ui.view">
+        <field name="name">sales_task.color.form</field>
+        <field name="model">sales_task.color</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="colour_name"/>
+                            <field name="job_number"/>
+                        </group>
+                        <group>
+                            <field name="color_widget" widget="color_picker"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!--    form view end-->
+
+
+
+    <record id="action_color_record" model="ir.actions.act_window">
+        <field name="name">Color</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sales_task.color</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your First Color!!
+            </p>
+        </field>
+    </record>
+
+
+     <menuitem id="menu_sales_color"
+              name="Color"
+              parent="sale.menu_sale_config"
+              action="action_color_record"
+              sequence="1"/>
+</odoo>
